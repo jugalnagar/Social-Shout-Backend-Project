@@ -24,22 +24,22 @@ public class FileUploadHelper {
 	public FileUploadHelper() throws IOException {}
 	
 	
-	public String uploadEncodedImage(String encodedImage,String filename) {	
-		String path = null;
-		try {
-			System.out.println("reading");
-			//System.out.println(encodedImage);
-			byte contains[] = Base64.getDecoder().decode(encodedImage);
-			String directory = UPLOAD_DIR+File.separator+filename+".jpg";
-			System.out.println("Start writing >>>>>>>>");
-			new FileOutputStream(directory).write(contains);
-			System.out.println("End Writing>>>>>>>>>>");
-			path = ServletUriComponentsBuilder.fromCurrentContextPath().path("/images/").path(filename).toUriString();
-		} catch (Exception e) {
-			return path;
-		}
-		return path;
-	}
+//	public String uploadEncodedImage(String encodedImage,String filename) {
+//		String path = null;
+//		try {
+//			System.out.println("reading");
+//			//System.out.println(encodedImage);
+//			byte contains[] = Base64.getDecoder().decode(encodedImage);
+//			String directory = UPLOAD_DIR+File.separator+filename+".jpg";
+//			System.out.println("Start writing >>>>>>>>");
+//			new FileOutputStream(directory).write(contains);
+//			System.out.println("End Writing>>>>>>>>>>");
+//			path = ServletUriComponentsBuilder.fromCurrentContextPath().path("/images/").path(filename).toUriString();
+//		} catch (Exception e) {
+//			return path;
+//		}
+//		return path;
+//	}
 	
 	/*public String getFile(String filePath,String name) {
 		String path = null;

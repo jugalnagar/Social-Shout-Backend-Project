@@ -31,36 +31,36 @@ public class ImageController {
 	@Autowired
 	private FileUploadHelper fileUploadHelper;
 	
-	@ApiOperation(value = "Update profile picture Of Existing User")
-	@PutMapping("/update-profile/{mobile}")
-	public ResponseEntity<Object> updateProfile(@RequestBody String encodedString,@PathVariable("mobile") @Min(value=1000000000,message="Mobile No must contain 10 digits") @Max(value=9999999999L,message="Mobile No must contain 10 digits") long mobile){
-		
-		User userFetch = null;
-		userFetch = userService.findByMobile(mobile);
-		if(userFetch == null) {
-			throw new NoSuchElementException("User not found");
-		}
-		
-		try {
-			String profile = fileUploadHelper.uploadEncodedImage(encodedString, userFetch.getFullName()+"_"+"profile");
-			if(profile == null) {
-				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Something went wrong!!!!!!!!");
-			}
-			userFetch.setProfile(profile);
-			System.out.println(profile);
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Please select valid path of profile");
-		}
-		
-		
-		try {
-			userFetch=userService.registerUser(userFetch);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return ResponseEntity.ok("Profile Updated !!");
-	}
+//	@ApiOperation(value = "Update profile picture Of Existing User")
+//	@PutMapping("/update-profile/{mobile}")
+//	public ResponseEntity<Object> updateProfile(@RequestBody String encodedString,@PathVariable("mobile") @Min(value=1000000000,message="Mobile No must contain 10 digits") @Max(value=9999999999L,message="Mobile No must contain 10 digits") long mobile){
+//
+//		User userFetch = null;
+//		userFetch = userService.findByMobile(mobile);
+//		if(userFetch == null) {
+//			throw new NoSuchElementException("User not found");
+//		}
+//
+//		try {
+//			String profile = fileUploadHelper.uploadEncodedImage(encodedString, userFetch.getFullName()+"_"+"profile");
+//			if(profile == null) {
+//				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Something went wrong!!!!!!!!");
+//			}
+//			userFetch.setProfile(profile);
+//			System.out.println(profile);
+//		} catch (Exception e) {
+//			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Please select valid path of profile");
+//		}
+//
+//
+//		try {
+//			userFetch=userService.registerUser(userFetch);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//
+//		return ResponseEntity.ok("Profile Updated !!");
+//	}
 
 	@ApiOperation(value = "Get profile picture of existing user")
 	@GetMapping("/profile/{mobile}")
