@@ -38,7 +38,7 @@ public class ImageController {
 		User userFetch = null;
 		userFetch = userService.findByMobile(mobile);
 		if(userFetch == null) {
-			throw new NoSuchElementException(null);
+			throw new NoSuchElementException("User not found");
 		}
 		
 		try {

@@ -39,7 +39,13 @@ public class UserController {
 	
 	@Autowired
 	private OTPService otpService;
-	
+
+
+	@GetMapping("/hello")
+	public String hello() {
+		return "Hello world";
+	}
+
 	@ApiOperation(value = "Signup New User")
 	@PostMapping("/signup")
 	public ResponseEntity<Object> singUp(@Valid @RequestBody User user,BindingResult bindingResult) {
