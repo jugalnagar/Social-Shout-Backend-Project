@@ -10,6 +10,7 @@ phase:
   post_build:
     command:
       - echo "Post build"
+      - mv target/deploy ./
 
 artifacts:
   files:
