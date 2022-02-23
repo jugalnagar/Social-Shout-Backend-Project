@@ -20,7 +20,7 @@ import com.Internity.model.User;
 @Component
 public class FileUploadHelper {
 
-	private final String UPLOAD_DIR = new ClassPathResource("static/images/").getFile().getAbsolutePath();
+	//private final String UPLOAD_DIR = new ClassPathResource("static/images/").getFile().getAbsolutePath();
 	public FileUploadHelper() throws IOException {}
 	
 	

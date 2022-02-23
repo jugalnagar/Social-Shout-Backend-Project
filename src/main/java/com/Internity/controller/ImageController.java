@@ -28,8 +28,8 @@ public class ImageController {
 	@Autowired
 	private UserService userService;
 	
-	@Autowired
-	private FileUploadHelper fileUploadHelper;
+//	@Autowired
+//	private FileUploadHelper fileUploadHelper;
 	
 //	@ApiOperation(value = "Update profile picture Of Existing User")
 //	@PutMapping("/update-profile/{mobile}")
