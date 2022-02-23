@@ -1,0 +1,16 @@
+version: 0.1
+phase:
+  pre_build:
+    command:
+      - echo "pre build"
+  build:
+    command:
+      - echo "biuld"
+      - mvn clean prepare-package war:exploded
+  post_build:
+    command:
+      - echo "Post build"
+
+artifacts:
+  files:
+    - deploy/**/*
